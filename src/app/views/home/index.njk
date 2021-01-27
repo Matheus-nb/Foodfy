@@ -16,71 +16,18 @@
     <div class="box-top-recipes container">
         <h3>Mais Acessadas</h3>
         <div class="cards">
-            <div class="card">
-                <div class="recipes-image">
-                    <img src="/images/pizza.png" alt="">
-                </div>
+            {% for recipe in recipes %}
+                <div class="card">
+                    <div class="recipes-image">
+                        <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                    </div>
 
-                <div class="recipes-info">
-                    <h1>Pizza 4 estações</h1>
-                    <p>por Fabiana Melo</p>
+                    <div class="recipes-info">
+                        <h1>{{recipe.title}}</h1>
+                        <p>{{recipe.author}}</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <div class="recipes-image">
-                    <img src="/images/pizza.png" alt="">
-                </div>
-
-                <div class="recipes-info">
-                    <h1>Pizza 4 estações</h1>
-                    <p>por Fabiana Melo</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="recipes-image">
-                    <img src="/images/pizza.png" alt="">
-                </div>
-
-                <div class="recipes-info">
-                    <h1>Pizza 4 estações</h1>
-                    <p>por Fabiana Melo</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="recipes-image">
-                    <img src="/images/pizza.png" alt="">
-                </div>
-
-                <div class="recipes-info">
-                    <h1>Pizza 4 estações</h1>
-                    <p>por Fabiana Melo</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="recipes-image">
-                    <img src="/images/pizza.png" alt="">
-                </div>
-
-                <div class="recipes-info">
-                    <h1>Pizza 4 estações</h1>
-                    <p>por Fabiana Melo</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="recipes-image">
-                    <img src="/images/pizza.png" alt="">
-                </div>
-
-                <div class="recipes-info">
-                    <h1>Pizza 4 estações</h1>
-                    <p>por Fabiana Melo</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}

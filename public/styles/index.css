@@ -119,62 +119,6 @@ nav.primary ul {
     line-height: 28px;
 }
 
-/* TOP-recipes */
-.box-top-recipes {
-    margin-bottom: 40px;
-    margin-top: 18px;
-}
-
-.box-top-recipes h3 {
-    font-size: 24px;
-    color: #111111;
-
-    margin-bottom: 20px;
-}
-
-
-.box-top-recipes .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    grid-gap: 20px;
-}
-
-.box-top-recipes .recipes-image {
-    max-width: 300px;
-    max-height: 140px;
-    
-    background-size: cover;
-    background-position:top;
-    background-repeat: no-repeat;
-}
-
-.box-top-recipes .recipes-image img {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 15px;
-}
-
-
-.box-top-recipes .recipes-info h1{
-    margin-top: 20px;
-    margin-bottom: 5px;
-
-    font-size: 18px;
-    font-weight: 400;
-
-    color: #111111;
-}
-
-.box-top-recipes .recipes-info p{
-    margin-bottom: 10px;
-
-    font-size: 14px;
-    font-weight: 400;
-    
-    color: #777777;
-}
 
 /* ABOUT */
 .about {

@@ -4,14 +4,17 @@ const routes = express.Router();
 const HomeController = require('../app/controllers/HomeController');
 
 
+const recipes = require('./recipes');
+
 
 
 // HOME
 routes.get('/', HomeController.index);
 routes.get('/about', HomeController.about);
-routes.get('/recipes', HomeController.recipes);
 
 
+
+routes.use('/recipes', recipes);
 
 
 
