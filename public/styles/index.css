@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html,body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #EEEEEE;
+    color: #999999;
+
+    font-size: 14px;
+    text-align: center;
+
+    width: 100%;
+    padding: 24px 0;
+
+    margin-top: auto;
+}
+
+/* HEADER */
+
+header {
+    background-color: white;
+    color: #111111;
+
+    width: 100%;
+    padding: 32px 0;
+
+    text-align: center;
+}
+
+header a {
+    color: #111111;
+}
+
+
+header div.container {
+    display: grid;
+    grid-template-columns: 220px 140px;
+
+    align-items: center;
+    grid-gap: 20px;
+}
+
+header div.container a {
+    justify-self: start;
+
+}
+
+header div.container a.active {
+    font-weight: bold;
+}
+
+header div.container a:hover {
+    font-weight: bold;
+}
+
+nav.primary ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* BOX INTRO */ 
+.box-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    padding-top: 60px;
+    max-height: 366px;
+
+    background-color: #fbdfdb;
+    
+    border-radius: 30px;
+
+    margin-top: 18px;
+    margin-bottom: 32px;
+}
+
+.box-intro .text {
+    padding: 60px;
+}
+
+.box-intro .text h4 {
+    font-size: 32px;
+    color: #111111;
+
+    margin-bottom: 10px;
+}
+
+.box-intro .text p {
+    opacity: 0.7;
+    font-size: 18px;
+
+    color: #000000;
+    line-height: 28px;
+}
+
+/* TOP-recipes */
+.box-top-recipes {
+    margin-bottom: 40px;
+    margin-top: 18px;
+}
+
+.box-top-recipes h3 {
+    font-size: 24px;
+    color: #111111;
+
+    margin-bottom: 20px;
+}
+
+
+.box-top-recipes .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-gap: 20px;
+}
+
+.box-top-recipes .recipes-image {
+    max-width: 300px;
+    max-height: 140px;
+    
+    background-size: cover;
+    background-position:top;
+    background-repeat: no-repeat;
+}
+
+.box-top-recipes .recipes-image img {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15px;
+}
+
+
+.box-top-recipes .recipes-info h1{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    color: #111111;
+}
+
+.box-top-recipes .recipes-info p{
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    font-weight: 400;
+    
+    color: #777777;
+}
+
+/* ABOUT */
+.about {
+    margin-bottom: 40px;
+}
+
+.about h1 {
+    font-size: 24px;
+    color: #111111;
+    font-weight: bold;
+
+    padding: 20px 0;
+}
+
+.about h2 {
+    font-size: 20px;
+    color: #111111;
+    font-weight: bold;
+
+    padding: 20px 0;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 28px;
+
+    color: #444444;
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}

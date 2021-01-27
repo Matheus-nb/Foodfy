@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        {% block head %}
+            <title>Foodfy</title>
+        {% endblock head %}
+
+        
+        {% include "parts/styles.njk" %}
+
+
+    </head>
+    <body>
+        
+        {% include "parts/header.njk" %}
+
+
+        {% block content %} {% endblock content %}
+
+
+        {% include "parts/footer.njk" %}
+
+       
+    </body>
+</html>
