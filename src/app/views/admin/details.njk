@@ -1,8 +1,13 @@
-{% extends "layout.njk" %}
+{% extends "adminLayout.njk" %}
 
 
 {% block content %}
    <div class="details container">
+       <div class="action">
+           <h1>Receita: {{recipe.title}}</h1>
+           <a href="/admin/recipes/{{recipe.id}}/edit" class="button">Editar receita</a>
+       </div>
+
        <div class="image">
            <img src="{{recipe.recipe_url}}" alt="Imagem da receita {{recipe.title}}">
        </div>
@@ -16,7 +21,6 @@
            <div class="ingredients-info">
                <div class="Show-Not">
                     <h2>Ingredientes</h2>
-                    <span onclick="ShowNot('detail-info')">Esconder</span>
                </div>
                
                <ul>
@@ -29,10 +33,9 @@
            <div class="preparation">
                <div class="Show-Not">
                     <h2>Modo de preparo</h2>
-                    <span onclick="ShowNot('preparation')">Esconder</span>
                </div>
                <ul>
-                   {% for step in recipe.preparations %}
+                   {% for step in recipe.preparation %}
                         <li>{{step}}</li>
                    {% endfor %}
                </ul>
@@ -42,18 +45,11 @@
                 <div class="add-info">
                     <div class="Show-Not">
                         <h2>Informações adicionais</h2>
-                        <span onclick="ShowNot('add-info')">Esconder</span>
                     </div>
                     <p>{{recipe.information}}</p>
                 </div>
            {% endif %}
        </div>
    </div>
-
-
-
-    <script>
-        document.querySelector(".recipes").classList.add("active")
-    </script>
 
 {% endblock content %}

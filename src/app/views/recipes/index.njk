@@ -7,12 +7,12 @@
             {% for recipe in recipes %}
                 <div class="card" onclick= "ChangePath({{recipes.indexOf(recipe)}})" >
                     <div class="recipes-image">
-                        <img src="{{recipe.image}}" alt="Receita de {{recipe.title}}">
+                        <img src="{{recipe.recipe_url}}" alt="Receita de {{recipe.title}}">
                     </div>
 
                     <div class="recipes-info">
                         <h1>{{recipe.title}}</h1>
-                        <p>{{recipe.author}}o</p>
+                        <p>por {{recipe.author}}</p>
                     </div>
                 </div>
             {% endfor %}

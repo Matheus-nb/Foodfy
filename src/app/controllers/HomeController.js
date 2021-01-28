@@ -1,10 +1,10 @@
-let recipes = require("../../../data");
+const data = require("../../../data.json");
 
 
 module.exports = {
     index(req, res) {
-        recipes = recipes.slice(0, 6);
-        return res.render("home/index", { recipes });
+        data.recipes = data.recipes.slice(0, 6);
+        return res.render("home/index", { recipes: data.recipes });
     },
 
     about(req, res) {
@@ -12,6 +12,6 @@ module.exports = {
     },
 
     recipes(req, res) {
-        return res.render("home/recipes", { recipes });
+        return res.render("home/recipes", { recipes: data.recipes });
     }
 }

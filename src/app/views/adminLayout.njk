@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        {% block head %}
+            <title>Foodfy</title>
+        {% endblock head %}
+
+        
+        {% include "parts/styles.njk" %}
+        <link rel="stylesheet" href="/styles/admin.css">
+
+
+    </head>
+    <body>
+        
+        {% include "parts/adminHeader.njk" %}
+
+
+        {% block content %} {% endblock content %}
+
+        <script src="/scripts.js"></script>
+    </body>
+</html>

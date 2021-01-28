@@ -1,4 +1,8 @@
 /* TOP-recipes */
+.box-top-recipes .card {
+    cursor: pointer;
+}
+
 .box-top-recipes {
     margin-bottom: 40px;
     margin-top: 18px;
@@ -14,7 +18,7 @@
 
 .box-top-recipes .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
 
     grid-gap: 20px;
 }

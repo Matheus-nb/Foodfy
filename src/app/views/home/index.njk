@@ -17,9 +17,9 @@
         <h3>Mais Acessadas</h3>
         <div class="cards">
             {% for recipe in recipes %}
-                <div class="card">
+                <div class="card" onclick= "ChangePath({{recipes.indexOf(recipe)}})">
                     <div class="recipes-image">
-                        <img src="{{recipe.image}}" alt="Imagem de {{recipe.title}}">
+                        <img src="{{recipe.recipe_url}}" alt="Imagem de {{recipe.title}}">
                     </div>
 
                     <div class="recipes-info">

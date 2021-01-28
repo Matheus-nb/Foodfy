@@ -18,6 +18,8 @@ body {
     background-color: white;
     display: flex;
     flex-direction: column;
+
+    position: relative;
 }
 
 .container {
@@ -27,6 +29,9 @@ body {
 }
 
 /* FOOTER */
+:root {
+    --primary-color: #6558C3
+}
 
 footer {
     background-color: #EEEEEE;

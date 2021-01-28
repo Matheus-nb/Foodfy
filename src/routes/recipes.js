@@ -10,11 +10,4 @@ routes.get('/', RecipesController.ShowAll);
 routes.get('/:index', RecipesController.ShowDetails);
 
 
-
-
-
-
-
-
-
 module.exports = routes;

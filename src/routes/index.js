@@ -5,6 +5,7 @@ const HomeController = require('../app/controllers/HomeController');
 
 
 const recipes = require('./recipes');
+const admin = require('./admin');
 
 
 
@@ -15,6 +16,8 @@ routes.get('/about', HomeController.about);
 
 
 routes.use('/recipes', recipes);
+routes.use('/admin/recipes', admin);
+
 
 
 
