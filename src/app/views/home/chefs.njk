@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+
+{% block content %}
+    <div class="chefs container">
+        <div class="cards chefs">
+            {% for chef in chefs %}
+                <div class="card chef">
+                    <div class="image">
+                        <img src="{{chef.avatar_url}}" alt="Foto do {{chef.name}}">
+                    </div>
+                    <div class="info">
+                        {% set count = 0 %}
+                        {% for recipe in recipes %}{% if recipe.chef_id == chef.id %}{% set count = count + 1%}{% endif %}{% endfor %}
+                        <h2>{{chef.name}}</h2>
+                        <p> {{ count }} {% if count == 1 %}receita{%else%}receitas{% endif %}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".chefs").classList.add("active")
+    </script>
+
+{% endblock content %}

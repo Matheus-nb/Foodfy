@@ -1,5 +1,5 @@
-function ChangePath (index) {
-    window.location = `recipes/${index}`
+function ChangePath (id) {
+    window.location = `recipes/${id}`
 }
 
 function ShowNot(filter) {
@@ -26,11 +26,11 @@ function AddField(filter) {
     fields.appendChild(newField);
 }
 
-function FormAction(filter) {
+function FormAction(filter, route) {
     if(filter == 'delete') {
-        document.querySelector('.myform').action = "/admin/recipes?_method=DELETE"
+        document.querySelector('.myform').action = `/admin/${route}?_method=DELETE`
     }
     if(filter == 'save') {
-        document.querySelector('.myform').action = "/admin/recipes?_method=PUT"
+        document.querySelector('.myform').action = `/admin/${route}?_method=PUT`
     }
 }

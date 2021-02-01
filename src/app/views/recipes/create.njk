@@ -9,7 +9,11 @@
             <button type="submit" class="button">Salvar receitas</button>
         </div>
         
-        {% include "admin/fields.njk" %}
+        {% include "recipes/fields.njk" %}
     </form>
+
+    <script>
+        document.querySelector(".recipes").classList.add("active")
+    </script>
 
 {% endblock content %}

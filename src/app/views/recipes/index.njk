@@ -1,18 +1,19 @@
-{% extends "layout.njk" %}
+{% extends "adminLayout.njk" %}
 
 
 {% block content %}
-    <div class="box-top-recipes container">
+    <div class="list container">
+        <h1>Gerenciar receitas</h1>
         <div class="cards">
             {% for recipe in recipes %}
-                <div class="card" onclick= "ChangePath({{recipes.indexOf(recipe)}})" >
-                    <div class="recipes-image">
-                        <img src="{{recipe.recipe_url}}" alt="Receita de {{recipe.title}}">
+                <div class="card">
+                    <div class="image">
+                        <img src="{{recipe.image}}" alt="Foto da receita {{recipe.title}}">
                     </div>
-
-                    <div class="recipes-info">
-                        <h1>{{recipe.title}}</h1>
-                        <p>por {{recipe.author}}</p>
+                    <div class="info">
+                        <h2>{{recipe.title}}</h2>
+                        <p>por {% for chef in chefs %}{% if recipe.chef_id == chef.id %}{{chef.name}}{% endif %}{% endfor %}</p>
+                        <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                     </div>
                 </div>
             {% endfor %}

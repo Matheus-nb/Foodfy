@@ -1,0 +1,26 @@
+{% extends "adminLayout.njk" %}
+
+
+{% block content %}
+    <div class="list container">
+        <h1>Gerenciar chefs</h1>
+        <div class="cards admin">
+            {% for chef in chefs %}
+                <div class="card">
+                    <div class="image">
+                        <img src="{{chef.avatar_url}}" alt="Foto do {{chef.name}}">
+                    </div>
+                    <div class="info">
+                        <h2>{{chef.name}}</h2>
+                        <a href="/admin/chefs/{{chef.id}}">Visualizar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".chefs").classList.add("active")
+    </script>
+
+{% endblock content %}

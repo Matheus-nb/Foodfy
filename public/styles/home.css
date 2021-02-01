@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html,body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.container {
+    width: 90%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+button,
+.button {
+    background-color: var(--primary-color);
+    color: white;
+
+    padding: 9px 20px;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+
+    cursor: pointer;
+}
+
+
+/* FOOTER */
+:root {
+    --primary-color: #6558C3
+}
+
+footer {
+    background-color: #EEEEEE;
+    color: #999999;
+
+    font-size: 14px;
+    text-align: center;
+
+    width: 100%;
+    padding: 24px 0;
+
+    margin-top: auto;
+}
+
+/* HEADER */
+
+header {
+    background-color: white;
+    color: #111111;
+
+    width: 100%;
+    padding: 32px 0;
+
+    text-align: center;
+}
+
+header a {
+    color: #111111;
+}
+
+
+header div.container {
+    display: grid;
+    grid-template-columns: 220px 200px 1fr;
+
+    align-items: center;
+    grid-gap: 20px;
+}
+
+header div.container a {
+    justify-self: start;
+
+}
+
+header div.container a.active {
+    font-weight: bold;
+}
+
+header div.container a:hover {
+    font-weight: bold;
+}
+
+nav.primary ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+form.search {
+    justify-self: end;
+}
+
+form.search input {
+    width: 250px;
+    height: 36px;
+    padding: 16px;
+
+    margin-right: 8px;
+
+    background: #FFFFFF;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #999999;
+}
+
+/* BOX INTRO */ 
+.box-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    padding-top: 60px;
+    max-height: 366px;
+
+    background-color: #fbdfdb;
+    
+    border-radius: 30px;
+
+    margin-top: 18px;
+    margin-bottom: 32px;
+}
+
+.box-intro .text {
+    padding: 60px;
+}
+
+.box-intro .text h4 {
+    font-size: 32px;
+    color: #111111;
+
+    margin-bottom: 10px;
+}
+
+.box-intro .text p {
+    opacity: 0.7;
+    font-size: 18px;
+
+    color: #000000;
+    line-height: 28px;
+}
+
+
+/* ABOUT */
+.about {
+    margin-bottom: 40px;
+}
+
+.about h1 {
+    font-size: 24px;
+    color: #111111;
+    font-weight: bold;
+
+    padding: 20px 0;
+}
+
+.about h2 {
+    font-size: 20px;
+    color: #111111;
+    font-weight: bold;
+
+    padding: 20px 0;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 28px;
+
+    color: #444444;
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}
+
+/* TOP-recipes */
+.box-top-recipes h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111111;
+
+    margin-bottom: 20px;
+}
+.box-top-recipes .card {
+    cursor: pointer;
+}
+
+.box-top-recipes {
+    margin-bottom: 40px;
+    margin-top: 18px;
+}
+
+.box-top-recipes h3 {
+    font-size: 24px;
+    color: #111111;
+
+    margin-bottom: 20px;
+}
+
+
+.box-top-recipes .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+
+    grid-gap: 20px;
+}
+
+.box-top-recipes .recipes-image {
+    position: relative;
+    min-width: 300px;
+    min-height: 140px;
+
+}
+
+.box-top-recipes .recipes-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 15px;
+}
+
+
+.box-top-recipes .recipes-info h1{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    color: #111111;
+}
+
+.box-top-recipes .recipes-info p{
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    font-weight: 400;
+    
+    color: #777777;
+}
+
+/* DETAILS RECIPE */
+.details {
+    margin-bottom: 50px;
+}
+
+.details .image {
+    position: relative;
+
+    
+    max-height: 280px;
+    min-height: 280px;
+
+    margin-top: 18px;
+}
+
+.details .image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.details .title {
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px 0 10px 0px;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.details .title h1 {
+    font-size: 36px;
+    font-weight: bold;
+
+    color: #111111;
+}
+
+.details .title p {
+    font-size: 20px;
+    font-weight: normal;
+    
+    color: #777777;
+}
+
+.details .Show-Not {
+    display: flex;
+    align-items: baseline;
+
+    margin-top: 40px;
+}
+
+.details .Show-Not span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #999999;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    margin-left: 8px;
+}
+
+.details h2 {
+    font-size: 24px;
+    font-weight: bold;
+
+    color: #111111;
+}
+
+.details ul li,
+.details .add-info p  {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 28px;
+    
+
+    color: #444444;
+}
+
+.details ul li {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.details .add-info p{
+    white-space: pre-line;
+}
+
+
+.details ul,
+.details .add-info p {
+    padding: 20px 0 0 0;
+}
+
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+/* CHEFS */
+.chefs.container {
+    margin-top: 18px;
+
+}
+
+.cards.chefs {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    grid-gap: 30px;
+}
+
+.cards.chefs .card {
+    display: flex;
+
+    align-items: center;
+}
+
+.cards.chefs .card .image {
+    position: relative;
+
+    min-width: 64px;
+    min-height: 64px;
+    max-height: 64px;
+}
+
+.cards.chefs .card .image img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+}
+
+.cards.chefs .card .info {
+    padding-left: 20px;
+}
+
+.cards.chefs .card .info h2 {
+    font-size: 18px;
+    font-weight: normal;
+
+    color: #111111;
+
+    margin-bottom: 5px;
+}
+
+
+.cards.chefs .card .info p {
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #666666;
+}

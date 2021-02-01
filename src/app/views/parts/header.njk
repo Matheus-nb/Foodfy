@@ -14,8 +14,22 @@
                 <li>
                     <a href="/recipes" class="recipes" >Receitas</a>
                 </li>
+                <li>
+                    <a href="/chefs" class="chefs" >Chefs</a>
+                </li>
             </ul>
         </nav>
+
+        <form action="/search" class="search">
+            <input type="text"
+                name="filter"
+                placeholder="Buscar uma receita"
+                {% if term %}
+                    value = "{{term}}"
+                {% endif %}
+            >
+            <button class="button">Buscar</button>
+        </form>
     </div>
 </header>
 

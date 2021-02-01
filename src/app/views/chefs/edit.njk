@@ -1,0 +1,33 @@
+{% extends "adminLayout.njk" %}
+
+
+{% block content %}
+
+    <form action="" method="POST" class="container myform">
+        <div class="head">
+            <h2>Editando chef</h2>
+
+            <div class="buttons">
+                <button type="submit" class="button delete" onclick="FormAction('delete','chefs')">Deletar</button>
+                <button type="submit" class="button" onclick="FormAction('save','chefs')">Salvar chef</button>
+            </div>   
+        </div>
+        
+        {% include "chefs/fields.njk" %}
+
+        <input type="hidden" name="id" value="{{chef.id}}">
+    </form>
+
+    <script>
+        {% if recipes_chef != "" %}
+            document.querySelector(".button.delete").addEventListener("click",(event) => {
+                event.preventDefault()
+                window.alert("Chefs que possuem receitas não podem ser deletados!!!")
+            })
+        {% endif %}
+
+
+        document.querySelector(".chefs").classList.add("active")
+    </script>
+
+{% endblock content %}

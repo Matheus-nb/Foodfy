@@ -2,19 +2,10 @@
 
 
 {% block content %}
-    <div class="box-intro container">
-        <div class="text">
-            <h4>As melhores receitas</h4>
-            <p>Aprenda a construir os melhores pratos<br/>com receitas criadas por profissionais<br/>do mundo inteiro.</p>
-        </div>
-
-        <div class="chef-image">
-            <img src="/images/chef.png" alt="Nosso Fanfic do Chef">
-        </div>
-    </div>
-
     <div class="box-top-recipes container">
-        <h3>Mais Acessadas</h3>
+        {% if term %}
+            <h2>Buscando por "{{term}}"</h2>
+        {% endif %}
         <div class="cards">
             {% for recipe in recipes %}
                 <div class="card" onclick=ChangePath({{recipe.id}})>
@@ -22,11 +13,16 @@
                         <img src="{{recipe.image}}" alt="Foto da receita {{recipe.title}}">
                     </div>
                     <div class="recipes-info">
-                        <h1>{{recipe.title}}</h2>
+                        <h1>{{recipe.title}}</h1>
                         <p>por {% for chef in chefs %}{% if recipe.chef_id == chef.id %}{{chef.name}}{% endif %}{% endfor %}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+
+    <script>
+        document.querySelector(".recipes").classList.add("active")
+    </script>
+
 {% endblock content %}

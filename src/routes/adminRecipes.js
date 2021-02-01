@@ -7,7 +7,7 @@ const RecipesController = require('../app/controllers/RecipesController');
 
 routes.get('/', RecipesController.Index);
 routes.get('/create', RecipesController.Create);
-routes.get('/:id', RecipesController.Show);
+routes.get('/:id', RecipesController.Details);
 routes.get('/:id/edit', RecipesController.Edit);
 
 

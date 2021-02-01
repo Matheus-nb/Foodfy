@@ -11,5 +11,16 @@ module.exports = {
         }
         
         return newArray;
+    },
+    
+    dbArrayFix(array) {
+        let fix = []
+        
+        fix = array.toString().split('"').toString().replace(/{/g, "").replace(/,/, "").replace(/,}/g, "").split(",,,")
+        for(let i=0; i < fix.length; i++){
+            fix[i] = fix[i].charAt(0).toUpperCase() + fix[i].slice(1)
+        }
+        
+        return fix;
     }
 }

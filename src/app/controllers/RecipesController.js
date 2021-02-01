@@ -1,47 +1,50 @@
-const fs = require("fs");
+const { dbArrayFix, arrayFix} = require('../../lib/utils');
 
-const {arrayFix} = require('../../lib/utils');
-const data = require("../../../data.json");
 
+const db = require('../../config/db');
+const Chefs = require('../models/Chefs');
+const Recipes = require('../models/Recipes');
 
 
 
 module.exports = {
-    Index(req,res) {
-        return res.render("admin/index", { recipes: data.recipes})
-    },
-
-    Create(req,res) {
-        return res.render("admin/create");
-    },
-
-    Edit (req, res) {
-        const { id } = req.params
-        const recipe = data.recipes.find(recipe => {
-            return recipe.id == id
-        })
-        return res.render("admin/edit", { recipe });
-    },
-
-    Show(req, res) {
-        const { id } = req.params
-        const recipe = data.recipes.find(recipe => {
-            return recipe.id == id
-        })
+    async Index(req,res) {
+        const recipes = await Recipes.findAll("")
+        const chefs = await Chefs.findAll("")
         
-        return res.render("admin/details", { recipe } )
+        return res.render("recipes/index", { recipes, chefs })
     },
 
-    ShowAll(req, res) {
-        return res.render("recipes/index", { recipes: data.recipes });
+    async Create(req,res) {
+        const chefs = await Chefs.findAll("");
+        return res.render("recipes/create", { chefs });
     },
 
-    ShowDetails(req, res) {
-        const index = req.params.index;
-        return res.render("recipes/details",  {recipe:data.recipes[index]} )
-    },
+    async Edit (req, res) {
+        const { id } = req.params
+        const recipe = await Recipes.find(id)
+        const chefs = await Chefs.findAll("");
 
-    Post(req, res) {
+        recipe.ingredients =  dbArrayFix(recipe.ingredients)
+        recipe.preparation =  dbArrayFix(recipe.preparation)
+
+        return res.render("recipes/edit", { recipe, chefs });
+    },
+            
+
+    async Details(req, res) {
+        const { id } = req.params
+        const recipe = await Recipes.find(id)
+        const { name } = await Chefs.find(recipe.chef_id)
+
+
+        recipe.ingredients =  dbArrayFix(recipe.ingredients)
+        recipe.preparation =  dbArrayFix(recipe.preparation)
+        
+        return res.render("recipes/details", { recipe, name } )
+    },
+    
+    async Post(req, res) {
         const keys = Object.keys(req.body);
         
         for (let key of keys) {
@@ -49,83 +52,41 @@ module.exports = {
                 return res.send("Porfavor, preencha os campos obrigatórios")
             }
         }
-        
-        let { recipe_url, title, ingredients, preparations, information } = req.body
 
-        let id = 1
-        const lastId = data.recipes[data.recipes.length - 1]
+        let {title, ingredients, preparation} = req.body
 
-        if(lastId) {
-            id = lastId.id + 1
-        }
-
-        data.recipes.push({
-            id,
-            recipe_url,
-            title,
-            ingredients,
-            preparations,
-            information
-        })
-
-        fs.writeFile("data.json",JSON.stringify(data,null,2),function(error) {
-            if(error) return res.send("Write file error!")
-
-
-            return res.redirect("/admin/recipes")
-        })
-    },
-
-    Put(req, res) {
-        const { recipe_url, title, ingredients, preparations, information, id } = req.body
-        const keys = Object.keys(req.body);
-        
-        for (let key of keys) {
-            if(req.body[key] == "" && key != "information" ){
-                return res.send("Porfavor, preencha os campos obrigatórios")
-            }
-        }
-        
-        const filterRecipes = data.recipes.filter(recipe => {
-            return recipe.id != id
-        })
-
-
-        
-        filterRecipes.push({
-            id,
-            recipe_url,
-            title,
+        const fields = {
+            ...req.body,
+            title: title.replace(/[^a-zA-Z]+/g," "),
             ingredients: arrayFix(ingredients),
-            preparations: arrayFix(preparations),
-            information
-        })
+            preparation: arrayFix(preparation)
+        }
+        
+        const recipe_id = await Recipes.createRecipe(fields);
 
-        data.recipes = filterRecipes;
-
-        fs.writeFile("data.json",JSON.stringify(data,null,2),function(error) {
-            if(error) return res.send("Write file error!")
-
-
-            return res.redirect("/admin/recipes")
-        })      
+        return res.redirect(`/admin/recipes/${recipe_id}`)
     },
 
-    Delete(req, res) {
+    async Put(req, res) {
+        const keys = Object.keys(req.body);
+        
+        for (let key of keys) {
+            if(req.body[key] == "" && key != "information" ){
+                return res.send("Porfavor, preencha os campos obrigatórios")
+            }
+        } 
+        
+        await Recipes.updateRecipe(req.body.id, req.body);
+
+        return res.redirect(`/admin/recipes/${req.body.id}`)
+        
+    },
+
+    async Delete(req, res) {
         const { id } = req.body
+        await Recipes.delete(id);
 
-        const filterRecipes = data.recipes.filter(recipe => {
-            return recipe.id != id
-        })
-
-        data.recipes = filterRecipes;
-
-        fs.writeFile("data.json",JSON.stringify(data,null,2),function(error) {
-            if(error) return res.send("Write file error!")
-
-
-            return res.redirect("/admin/recipes")
-        })
+        return res.redirect("/admin/recipes")
     }
     
 }
